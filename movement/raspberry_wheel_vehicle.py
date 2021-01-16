@@ -55,6 +55,7 @@ class RaspberryWheelVehicle(Vehicle):
         time.sleep(self.__time)
 
     def backward(self, speed):
+        super().backward(speed)
         self.__left_motor.ChangeDutyCycle(speed)
         GPIO.output(AIN2, True)  # AIN2
         GPIO.output(AIN1, False)  # AIN1
@@ -66,12 +67,30 @@ class RaspberryWheelVehicle(Vehicle):
 
     def left(self, speed):
         super().left(speed)
+        self.__left_motor.ChangeDutyCycle(speed)
+        GPIO.output(AIN2, True)  # AIN2
+        GPIO.output(AIN1, False)  # AIN1
+
+        self.__right_motor.ChangeDutyCycle(speed)
+        GPIO.output(BIN2, False)  # BIN2
+        GPIO.output(BIN1, True)  # BIN1
+        time.sleep(self.__time)
 
     def right(self, speed):
         super().right(speed)
+        self.__left_motor.ChangeDutyCycle(speed)
+        GPIO.output(AIN2, False)  # AIN2
+        GPIO.output(AIN1, True)  # AIN1
+
+        self.__right_motor.ChangeDutyCycle(speed)
+        GPIO.output(BIN2, True)  # BIN2
+        GPIO.output(BIN1, False)  # BIN1
+        time.sleep(self.__time)
 
 
 if __name__ == '__main__':
     vehicle = RaspberryWheelVehicle(3)
-    vehicle.backward(60)
+    vehicle.backward(50)
     vehicle.forward(50)
+    vehicle.left(50)
+    vehicle.right(50)
