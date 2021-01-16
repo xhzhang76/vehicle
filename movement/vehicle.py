@@ -31,3 +31,6 @@ class Vehicle(object):
     
     def right(self, speed):
         pass
+    
+    def stop(self):
+        pass
