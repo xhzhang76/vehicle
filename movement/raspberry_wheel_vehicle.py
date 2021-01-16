@@ -17,11 +17,13 @@ PWMB = 23
 BIN1 = 25
 BIN2 = 24
 
-class RaspberryVehicle(vehicle.Vehicle):
+class RaspberryWheelVehicle(vehicle.Vehicle):
     """
+    mplement class
     """
     
     def __init__(self):
         """
         """
         pass
+
