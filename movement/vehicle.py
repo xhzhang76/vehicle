@@ -20,14 +20,14 @@ class Vehicle(object):
         """
         pass
     
-    def forward(self):
+    def forward(self, speed):
         pass
     
-    def backward(self):
+    def backward(self, speed):
         pass
     
-    def left(self):
+    def left(self, speed):
         pass
     
-    def right(self):
+    def right(self, speed):
         pass
